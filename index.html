@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hillside Dallas · Know Your Home's True Value</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --forest:#1a3d2b;
+  --forest-mid:#2a5c41;
+  --forest-light:#3d7a58;
+  --sage:#d4e8db;
+  --sage-pale:#eef6f1;
+  --cream:#faf7f2;
+  --warm-white:#fff9f4;
+  --ink:#1c1a16;
+  --ink-mid:#4a4540;
+  --ink-light:#8a8278;
+  --border:#e2ddd6;
+  --gold:#b07820;
+  --gold-light:#fdf3de;
+  --gold-border:#d4a84b;
+  --amber:#f5a623;
+  --red:#b83232;
+  --red-light:#faeaea;
+  --blue:#1a4d80;
+  --blue-light:#e8f0f9;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;
+}
+
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:16px;}
+
+
+/* ── TOPBAR ── */
+.topbar{
+  background:var(--forest);border-bottom:1px solid rgba(255,255,255,0.1);
+  padding:12px 32px;
+}
+.topbar-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.topbar-team{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.02em;text-decoration:none;}
+.topbar-team:hover{color:#7fcfab;}
+.topbar-contact{font-size:12px;color:rgba(255,255,255,0.55);display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.topbar-contact a{color:rgba(255,255,255,0.7);text-decoration:none;font-weight:500;}
+.topbar-contact a:hover{color:#7fcfab;}
+@media(max-width:600px){
+  .topbar{padding:10px 16px;}
+  .topbar-contact{gap:10px;font-size:11px;}
+}
+
+
+/* ── NAV TABS ── */
+.nav-tabs{background:var(--forest);border-top:1px solid rgba(255,255,255,0.08);padding:0 32px;}
+.nav-tabs-inner{max-width:900px;margin:0 auto;display:flex;gap:0;}
+.nav-tab{
+  display:inline-block;padding:13px 20px;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,0.55);
+  text-decoration:none;border-bottom:3px solid transparent;
+  transition:color .2s,border-color .2s;white-space:nowrap;
+  letter-spacing:0.01em;
+}
+.nav-tab:hover{color:rgba(255,255,255,0.9);border-bottom-color:rgba(255,255,255,0.3);}
+.nav-tab.active{color:#7fcfab;border-bottom-color:#7fcfab;}
+@media(max-width:600px){
+  .nav-tabs{padding:0 16px;overflow-x:auto;}
+  .nav-tab{padding:11px 14px;font-size:12px;}
+}
+
+html{scroll-behavior:smooth;}
+.topbar-ig{display:flex;align-items:center;opacity:0.8;transition:opacity .2s;}
+.topbar-ig:hover{opacity:1;}
+.nav-tab-team{margin-left:auto;color:rgba(255,255,255,0.75) !important;border-bottom-color:transparent !important;}
+.nav-tab-team:hover{color:#7fcfab !important;}
+/* ── HERO ── */
+.hero{
+  background:var(--forest);
+  padding:0;
+  position:relative;overflow:hidden;
+}
+.hero-texture{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(61,122,88,0.25) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(26,61,43,0.4) 0%, transparent 40%);
+  pointer-events:none;
+}
+.hero-inner{max-width:900px;margin:0 auto;padding:64px 32px 56px;position:relative;z-index:1;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.75);padding:5px 14px;border-radius:100px;
+  font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero h1{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(34px,5.5vw,58px);
+  font-weight:800;line-height:1.1;
+  color:#fff;margin-bottom:20px;
+}
+.hero h1 em{color:#7fcfab;font-style:normal;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.7);max-width:520px;line-height:1.7;margin-bottom:32px;}
+
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:24px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding-top:28px;margin-top:4px;
+}
+.hero-stat-item{display:flex;flex-direction:column;gap:3px;}
+.hero-stat-num{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:700;color:#fff;line-height:1;}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.55);font-weight:500;}
+
+/* ── ALERT BAR ── */
+.alert-bar{background:var(--gold-light);border-bottom:2px solid var(--gold-border);padding:14px 32px;}
+.alert-bar-inner{max-width:900px;margin:0 auto;display:flex;gap:12px;align-items:flex-start;}
+.alert-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.alert-text{font-size:14px;color:#5a3e08;line-height:1.6;}
+.alert-text strong{color:#3a2500;}
+
+/* ── PAGE WRAPPER ── */
+.page{max-width:900px;margin:0 auto;padding:48px 24px 80px;}
+.section{margin-bottom:56px;}
+
+/* ── SECTION HEADING ── */
+.section-head{margin-bottom:22px;}
+.section-label{
+  font-size:10px;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink-light);
+}
+.section-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(20px,3vw,26px);font-weight:700;
+  line-height:1.25;margin-top:4px;
+}
+.section-desc{font-size:14px;color:var(--ink-mid);line-height:1.65;margin-top:6px;max-width:640px;}
+
+/* ── KEY STATS GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:16px;}
+.kpi{
+  background:var(--warm-white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:20px 18px;
+  transition:border-color .2s;
+}
+.kpi:hover{border-color:#b0a898;}
+.kpi.featured{background:var(--forest);border-color:var(--forest);}
+.kpi-label{font-size:11px;font-weight:600;color:var(--ink-light);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;}
+.kpi.featured .kpi-label{color:rgba(255,255,255,0.55);}
+.kpi-val{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:700;line-height:1;color:var(--ink);}
+.kpi.featured .kpi-val{color:#fff;}
+.kpi-sub{font-size:12px;color:var(--ink-light);margin-top:4px;}
+.kpi.featured .kpi-sub{color:rgba(255,255,255,0.5);}
+
+/* ── CALLOUT BOXES ── */
+.callout{border-radius:var(--r-md);padding:18px 22px;margin-top:14px;}
+.callout.green{background:var(--sage-pale);border-left:4px solid var(--forest-light);}
+.callout.gold{background:var(--gold-light);border-left:4px solid var(--gold);}
+.callout.blue{background:var(--blue-light);border-left:4px solid var(--blue);}
+.callout.red{background:var(--red-light);border-left:4px solid var(--red);}
+.callout p,.callout li{font-size:14px;color:var(--ink-mid);line-height:1.7;}
+.callout p strong,.callout li strong{color:var(--ink);}
+.callout ul{padding-left:18px;margin-top:8px;}
+
+/* ── DISTRIBUTION CHART ── */
+.dist-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;}
+.dist-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.dist-row:last-child{margin-bottom:0;}
+.dist-range{font-size:13px;font-weight:500;color:var(--ink-mid);width:120px;flex-shrink:0;}
+.dist-count{font-size:12px;font-weight:700;width:18px;text-align:right;color:var(--ink-light);flex-shrink:0;}
+.dist-bar-track{flex:1;height:12px;background:var(--border);border-radius:6px;overflow:hidden;}
+.dist-bar-fill{height:100%;border-radius:6px;transition:width .4s;}
+.dist-fill-1{background:#b0cfc0;}
+.dist-fill-2{background:#7aad94;}
+.dist-fill-3{background:#4d9070;}
+.dist-fill-4{background:#2a6e4d;}
+.dist-fill-5{background:var(--forest-mid);}
+.dist-fill-6{background:var(--forest);}
+.dist-pct{font-size:12px;color:var(--ink-light);width:32px;text-align:right;}
+.dist-note{font-size:12px;color:var(--ink-light);margin-top:12px;line-height:1.6;}
+
+/* ── TABLES ── */
+.tbl-wrap{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;}
+.tbl-scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead th{
+  background:#f0ece4;padding:10px 12px;text-align:left;
+  font-size:10px;font-weight:600;color:var(--ink-mid);
+  text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap;
+}
+thead th:not(:first-child){text-align:right;}
+tbody td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+tbody td:not(:first-child){text-align:right;font-weight:500;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover td{background:#f7f3ec;}
+.td-addr{font-weight:600;color:var(--ink);}
+.td-sub{font-size:11px;color:var(--ink-light);display:block;margin-top:1px;font-weight:400;}
+.td-price{color:var(--forest-mid);font-weight:700 !important;font-family:'Montserrat',sans-serif;font-size:14px;}
+.td-ppsf{color:var(--ink-mid);}
+.badge-pool{background:var(--blue-light);color:var(--blue);font-size:10px;font-weight:600;padding:2px 7px;border-radius:100px;white-space:nowrap;}
+.tbl-footer{padding:10px 14px;background:#f7f4ee;border-top:1px solid var(--border);font-size:12px;color:var(--ink-light);}
+
+/* ── VALUE DRIVERS ── */
+.driver-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.driver{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--r-md);padding:20px;}
+.driver-num{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:700;color:var(--forest);line-height:1;margin-bottom:4px;}
+.driver-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.driver-desc{font-size:12px;color:var(--ink-light);line-height:1.55;}
+
+/* ── TWO COL ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+.info-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;}
+.info-card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-light);margin-bottom:14px;}
+.info-row{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;gap:8px;}
+.info-row:last-child{border-bottom:none;}
+.info-row-k{color:var(--ink-mid);}
+.info-row-v{font-weight:600;text-align:right;}
+
+/* ── BUILDER WARNING ── */
+.builder-warn{
+  background:var(--gold-light);border:1.5px solid var(--gold-border);
+  border-radius:var(--r-lg);padding:28px 28px 24px;
+}
+.builder-warn-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.builder-warn-icon{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(176,120,32,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;margin-top:2px;
+}
+.builder-warn h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#3a2500;line-height:1.25;}
+.builder-warn p{font-size:14px;color:#5a3e10;line-height:1.7;}
+.builder-warn ul{font-size:14px;color:#5a3e10;line-height:1.8;padding-left:20px;margin-top:10px;}
+.builder-warn ul li{margin-bottom:2px;}
+.vs-row{display:flex;gap:12px;margin-top:16px;}
+.vs-box{flex:1;border-radius:var(--r-sm);padding:14px 16px;}
+.vs-box.builder{background:rgba(184,50,50,0.08);border:1px solid rgba(184,50,50,0.25);}
+.vs-box.market{background:rgba(26,61,43,0.07);border:1px solid rgba(26,61,43,0.2);}
+.vs-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;}
+.vs-box.builder .vs-label{color:#b83232;}
+.vs-box.market .vs-label{color:var(--forest);}
+.vs-num{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:700;line-height:1;}
+.vs-box.builder .vs-num{color:#b83232;}
+.vs-box.market .vs-num{color:var(--forest);}
+.vs-desc{font-size:15px;color:var(--ink-mid);margin-top:6px;line-height:1.55;}
+
+/* ── CTA ── */
+.cta{background:var(--ink);border-radius:var(--r-xl);padding:40px 36px 36px;color:#fff;}
+.cta h2{font-family:'Montserrat',sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;margin-bottom:10px;line-height:1.25;}
+.cta-lead{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:28px;}
+.cta-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:28px;}
+.cta-svc{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:var(--r-md);padding:16px;}
+.cta-svc-num{font-size:10px;font-weight:700;letter-spacing:0.12em;color:#7fcfab;text-transform:uppercase;margin-bottom:6px;}
+.cta-svc-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:5px;}
+.cta-svc-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;}
+.cta-contact{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--r-md);padding:20px 22px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;
+}
+.cta-contact-name{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;}
+.cta-contact-detail{font-size:14px;color:#7fcfab;font-weight:500;}
+.cta-disclaimer{font-size:11px;color:rgba(255,255,255,0.3);margin-top:18px;line-height:1.6;}
+
+.footer{text-align:center;padding:24px;font-size:11px;color:var(--ink-light);border-top:1px solid var(--border);max-width:900px;margin:0 auto;}
+
+@media(max-width:480px){
+  .hero-inner{padding:44px 20px 40px;}
+  .alert-bar{padding:12px 20px;}
+  .page{padding:32px 16px 60px;}
+  .cta{padding:28px 20px;}
+  .vs-row{flex-direction:column;}
+  .hero-stats{gap:18px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-contact">
+      <a href="https://www.instagram.com/smileysheehangroup/" target="_blank" class="topbar-ig" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="0.75" fill="rgba(255,255,255,0.75)" stroke="none"/>
+        </svg>
+      </a>
+      <span>817-964-2672</span>
+      <span>mattyoung@compass.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <div class="nav-tabs-inner">
+    <a href="#sales-breakdown" class="nav-tab">Sales Breakdown</a>
+    <a href="#data-reveals" class="nav-tab">What the Data Reveals</a>
+    <a href="#free-consultation" class="nav-tab">Free Consultation</a>
+    <a href="https://www.compass.com/agents/smiley-sheehan-group/" target="_blank" class="nav-tab nav-tab-team">The Smiley Sheehan Group</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Hillside · East Dallas · ZIP 75214</div>
+    <h1>Do you know what your<br>home is <em>really worth?</em></h1>
+    <p class="hero-sub">Builders are approaching homeowners in Hillside — often offering far less than what a buyer on the open market would pay. Here's what the actual MLS data says about homes built just like yours.</p>
+
+  </div>
+</div>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+  <div class="alert-bar-inner">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-text"><strong>If a builder has contacted you:</strong> Builders calculate offers based on land value minus demolition costs — not what a retail buyer pays for your home. The data below shows what comparable homes are actually closing for.</div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- KPIs -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">Key Market Metrics</div>
+      <div class="section-title">What Pre-1965 Hillside Homes Are Selling For</div>
+      <div class="section-desc">Every figure below is drawn from the last 365 days of MLS closed sales of homes built before 1965 in Hillside's core subdivisions.</div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi featured">
+        <div class="kpi-label">Median Sale Price</div>
+        <div class="kpi-val">$690K</div>
+        <div class="kpi-sub">28 homes · last 365 days</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg Sale Price (2026)</div>
+        <div class="kpi-val">$750K</div>
+        <div class="kpi-sub">5 closings so far in 2026</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Price Range</div>
+        <div class="kpi-val">$480K–$1.04M</div>
+        <div class="kpi-sub">Last 365 days · by size &amp; condition</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg Price / Sq Ft</div>
+        <div class="kpi-val">$392</div>
+        <div class="kpi-sub">Last 365 days · up to $543 updated</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg Home Size</div>
+        <div class="kpi-val">1,872 sqft</div>
+        <div class="kpi-sub">Last 365 days · pre-1965 homes</div>
+      </div>
+
+    </div>
+    <div class="callout green">
+      <p><strong>These numbers represent what real buyers are paying on the open market</strong> — not what builders offer. Half of all pre-1965 Hillside homes sold in the last 12 months closed at $690,000 or above. Three homes exceeded $1,000,000. Condition and updates are the biggest variables.</p>
+    </div>
+  </div>
+
+  <!-- BUILDER WARNING -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">Understanding the Risk</div>
+      <div class="section-title">Why Builder Offers Are Not Market Value</div>
+    </div>
+    <div class="builder-warn">
+      <div class="builder-warn-head">
+        <div class="builder-warn-icon">🏗️</div>
+        <h3>A builder's offer is calculated very differently than a buyer's offer</h3>
+      </div>
+      <p>When a builder contacts you, their math starts with: <em>What can we sell a new construction home for?</em> Then they subtract demolition costs, construction costs, carrying costs, and profit margin. Your home's charm, history, and livability don't factor in — only the lot dimensions do.</p>
+      <ul>
+        <li>New construction in Hillside (75214) is listing for <strong>$1.5M–$5.8M</strong></li>
+        <li>Pre-1965 homes are selling for <strong>$480,000–$1,040,000</strong> on the retail market</li>
+        <li>Builders typically need to buy land at a large discount to make their numbers work</li>
+        <li>Hillside has <strong>fewer teardowns than most Dallas neighborhoods</strong> — preservation is a community value here</li>
+        <li>You have zero obligation to respond to unsolicited offers, and every right to seek a second opinion</li>
+      </ul>
+      <div class="vs-row">
+        <div class="vs-box builder">
+          <div class="vs-label">Builder Offer vs. Retail Value</div>
+          <div class="vs-desc" style="font-size:17px;line-height:1.6;margin-top:6px;font-weight:500;color:#7a3010;">A builder's offer can be significantly lower than what the retail market will pay for your home.</div>
+        </div>
+        <div class="vs-box market">
+          <div class="vs-label">Retail Market Value</div>
+          <div class="vs-num">$690K median</div>
+          <div class="vs-desc">What a buyer who wants to live in your home will actually pay.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRICE DISTRIBUTION -->
+  <div class="section" id="sales-breakdown">
+    <div class="section-head">
+      <div class="section-label">Sales Breakdown</div>
+      <div class="section-title">Where Pre-1965 Homes Are Pricing Out</div>
+      <div class="section-desc">28 closed MLS sales of pre-1965 Hillside homes in the last 12 months, broken out by price tier.</div>
+    </div>
+    <div class="dist-card">
+      <div class="dist-row">
+        <div class="dist-range">Under $600K</div>
+        <div class="dist-count">7</div>
+        <div class="dist-bar-track"><div class="dist-bar-fill dist-fill-1" style="width:50%"></div></div>
+        <div class="dist-pct">25%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-range">$600K – $700K</div>
+        <div class="dist-count">7</div>
+        <div class="dist-bar-track"><div class="dist-bar-fill dist-fill-2" style="width:50%"></div></div>
+        <div class="dist-pct">25%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-range">$700K – $800K</div>
+        <div class="dist-count">5</div>
+        <div class="dist-bar-track"><div class="dist-bar-fill dist-fill-3" style="width:36%"></div></div>
+        <div class="dist-pct">18%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-range">$800K – $900K</div>
+        <div class="dist-count">5</div>
+        <div class="dist-bar-track"><div class="dist-bar-fill dist-fill-4" style="width:36%"></div></div>
+        <div class="dist-pct">18%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-range">$900K – $1M</div>
+        <div class="dist-count">1</div>
+        <div class="dist-bar-track"><div class="dist-bar-fill dist-fill-5" style="width:7%"></div></div>
+        <div class="dist-pct">4%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-range">Over $1M</div>
+        <div class="dist-count">3</div>
+        <div class="dist-bar-track"><div class="dist-bar-fill dist-fill-6" style="width:21%"></div></div>
+        <div class="dist-pct">11%</div>
+      </div>
+      <p class="dist-note">50% of pre-1965 Hillside homes sold for $600,000 or above. 11% — three homes — broke the million-dollar mark. All were pre-1965 ranch homes on larger or updated lots.</p>
+    </div>
+  </div>
+
+  <!-- SOLD IN 2026 TABLE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">MLS Data · Sold in 2026</div>
+      <div class="section-title">Pre-1965 Hillside Homes Closed This Year</div>
+      <div class="section-desc">5 homes built before 1965 have sold in Hillside in 2026.</div>
+    </div>
+    <div class="tbl-wrap">
+      <div class="tbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>SqFt</th>
+              <th>Bed/Bath</th>
+              <th>Acres</th>
+              <th>Pool</th>
+              <th>List Price</th>
+              <th>$/SqFt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="td-addr">6446 Runnemede Lane</span><span class="td-sub">Caruth Terrace</span></td>
+              <td>2,572</td><td>3 / 3</td><td>0.186</td><td>No</td>
+              <td class="td-price">$1,150,000</td><td class="td-ppsf">$447</td>
+            </tr>
+            <tr>
+              <td><span class="td-addr">6611 Blessing Drive</span><span class="td-sub">Mockingbird Hill Rev</span></td>
+              <td>1,923</td><td>3 / 2</td><td>0.248</td><td>No</td>
+              <td class="td-price">$850,000</td><td class="td-ppsf">$442</td>
+            </tr>
+            <tr>
+              <td><span class="td-addr">6720 Braeburn Drive</span><span class="td-sub">Caruth Terrace</span></td>
+              <td>1,724</td><td>3 / 2</td><td>0.192</td><td>No</td>
+              <td class="td-price">$650,000</td><td class="td-ppsf">$377</td>
+            </tr>
+            <tr>
+              <td><span class="td-addr">6609 Patrick Drive</span><span class="td-sub">Mockingbird Hill</span></td>
+              <td>1,449</td><td>3 / 2</td><td>0.178</td><td>No</td>
+              <td class="td-price">$649,500</td><td class="td-ppsf">$448</td>
+            </tr>
+            <tr>
+              <td><span class="td-addr">6711 Vada Drive</span><span class="td-sub">Mockingbird Hill</span></td>
+              <td>1,456</td><td>2 / 2</td><td>0.171</td><td>No</td>
+              <td class="td-price">$600,000</td><td class="td-ppsf">$412</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-footer">Source: MLS · NTREIS · All homes built pre-1965 · List prices shown</div>
+    </div>
+  </div>
+
+  <!-- FULL 365-DAY TABLE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">MLS Data · Last 365 Days</div>
+      <div class="section-title">Every Pre-1965 Hillside Sale in the Past Year</div>
+      <div class="section-desc">28 closed sales. These are your neighbors' homes — the same era, the same streets, the same architecture. List prices shown.</div>
+    </div>
+    <div class="tbl-wrap">
+      <div class="tbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>SqFt</th>
+              <th>Bed/Bath</th>
+              <th>Acres</th>
+              <th>Pool</th>
+              <th>List Price</th>
+              <th>$/SqFt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="td-addr">6446 Runnemede Lane</span><span class="td-sub">Caruth Terrace</span></td><td>2,572</td><td>3/3</td><td>0.186</td><td>No</td><td class="td-price">$1,150,000</td><td class="td-ppsf">$447</td></tr>
+            <tr><td><span class="td-addr">4430 Briar Creek Lane</span><span class="td-sub">Caruth Terrace</span></td><td>3,114</td><td>3/3</td><td>0.440</td><td>No</td><td class="td-price">$1,100,000</td><td class="td-ppsf">$353</td></tr>
+            <tr><td><span class="td-addr">6470 Woodcrest Lane</span><span class="td-sub">Caruth Terrace Add 03</span></td><td>2,034</td><td>3/2</td><td>0.286</td><td><span class="badge-pool">Pool</span></td><td class="td-price">$1,049,000</td><td class="td-ppsf">$516</td></tr>
+            <tr><td><span class="td-addr">6556 Patrick Drive</span><span class="td-sub">Caruth Terrace 06</span></td><td>1,683</td><td>3/2</td><td>0.203</td><td>No</td><td class="td-price">$898,000</td><td class="td-ppsf">$534</td></tr>
+            <tr><td><span class="td-addr">6737 Ravendale Lane</span><span class="td-sub">Caruth Terrace 05</span></td><td>1,739</td><td>2/2</td><td>0.199</td><td>No</td><td class="td-price">$885,000</td><td class="td-ppsf">$509</td></tr>
+            <tr><td><span class="td-addr">6611 Blessing Drive</span><span class="td-sub">Mockingbird Hill Rev</span></td><td>1,923</td><td>3/2</td><td>0.248</td><td>No</td><td class="td-price">$850,000</td><td class="td-ppsf">$442</td></tr>
+            <tr><td><span class="td-addr">6471 Sudbury Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,872</td><td>3/2</td><td>0.181</td><td>No</td><td class="td-price">$829,990</td><td class="td-ppsf">$443</td></tr>
+            <tr><td><span class="td-addr">6721 Belford Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,817</td><td>3/2</td><td>0.188</td><td>No</td><td class="td-price">$820,000</td><td class="td-ppsf">$451</td></tr>
+            <tr><td><span class="td-addr">6537 Patrick Drive</span><span class="td-sub">Caruth Terrace 6</span></td><td>1,643</td><td>3/2</td><td>0.184</td><td>No</td><td class="td-price">$815,000</td><td class="td-ppsf">$496</td></tr>
+            <tr><td><span class="td-addr">6434 Sudbury Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,730</td><td>2/2</td><td>0.191</td><td><span class="badge-pool">Pool</span></td><td class="td-price">$809,000</td><td class="td-ppsf">$468</td></tr>
+            <tr><td><span class="td-addr">6723 Blessing Drive</span><span class="td-sub">Mockingbird Hill Rev</span></td><td>2,125</td><td>3/2</td><td>0.200</td><td>No</td><td class="td-price">$775,000</td><td class="td-ppsf">$365</td></tr>
+            <tr><td><span class="td-addr">4323 Ashford Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,871</td><td>3/2</td><td>0.214</td><td>No</td><td class="td-price">$775,000</td><td class="td-ppsf">$414</td></tr>
+            <tr><td><span class="td-addr">6525 Prince Street</span><span class="td-sub">Caruth Terrace</span></td><td>1,864</td><td>3/2</td><td>0.205</td><td>No</td><td class="td-price">$760,000</td><td class="td-ppsf">$408</td></tr>
+            <tr><td><span class="td-addr">6803 Patrick Drive</span><span class="td-sub">Mockingbird Hill</span></td><td>1,485</td><td>2/2</td><td>0.177</td><td>No</td><td class="td-price">$749,000</td><td class="td-ppsf">$504</td></tr>
+            <tr><td><span class="td-addr">6729 Braeburn Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,867</td><td>2/2</td><td>0.192</td><td>No</td><td class="td-price">$695,000</td><td class="td-ppsf">$372</td></tr>
+            <tr><td><span class="td-addr">6720 Braeburn Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,724</td><td>3/2</td><td>0.192</td><td>No</td><td class="td-price">$650,000</td><td class="td-ppsf">$377</td></tr>
+            <tr><td><span class="td-addr">6609 Patrick Drive</span><span class="td-sub">Mockingbird Hill</span></td><td>1,449</td><td>3/2</td><td>0.178</td><td>No</td><td class="td-price">$649,500</td><td class="td-ppsf">$448</td></tr>
+            <tr><td><span class="td-addr">6529 Saint Moritz Avenue</span><span class="td-sub">Caruth Terrace 03</span></td><td>1,824</td><td>4/2</td><td>0.196</td><td>No</td><td class="td-price">$640,000</td><td class="td-ppsf">$351</td></tr>
+            <tr><td><span class="td-addr">6703 Blessing Drive</span><span class="td-sub">Mockingbird Hill Add</span></td><td>1,458</td><td>2/2</td><td>0.226</td><td>No</td><td class="td-price">$619,000</td><td class="td-ppsf">$425</td></tr>
+            <tr><td><span class="td-addr">6729 Ravendale Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,698</td><td>2/2</td><td>0.197</td><td>No</td><td class="td-price">$615,000</td><td class="td-ppsf">$362</td></tr>
+            <tr><td><span class="td-addr">6645 Lange Circle</span><span class="td-sub">Briar Creek Estates</span></td><td>1,737</td><td>2/2</td><td>0.201</td><td>No</td><td class="td-price">$599,000</td><td class="td-ppsf">$345</td></tr>
+            <tr><td><span class="td-addr">6474 Sudbury Drive</span><span class="td-sub">Caruth Terrace</span></td><td>1,456</td><td>2/2</td><td>0.177</td><td>No</td><td class="td-price">$599,000</td><td class="td-ppsf">$411</td></tr>
+            <tr><td><span class="td-addr">6903 E Mockingbird Lane</span><span class="td-sub">Mockingbird Hill Add</span></td><td>2,044</td><td>3/2</td><td>0.172</td><td>No</td><td class="td-price">$599,000</td><td class="td-ppsf">$293</td></tr>
+            <tr><td><span class="td-addr">6519 Ravendale Lane</span><span class="td-sub">Caruth Terrace</span></td><td>2,122</td><td>4/3</td><td>0.184</td><td>No</td><td class="td-price">$595,000</td><td class="td-ppsf">$280</td></tr>
+            <tr><td><span class="td-addr">6825 Blessing Drive</span><span class="td-sub">Mockingbird Hill Add</span></td><td>2,169</td><td>3/2</td><td>0.377</td><td>No</td><td class="td-price">$575,580</td><td class="td-ppsf">$265</td></tr>
+            <tr><td><span class="td-addr">6711 Vada Drive</span><span class="td-sub">Mockingbird Hill</span></td><td>1,456</td><td>2/2</td><td>0.171</td><td>No</td><td class="td-price">$569,000</td><td class="td-ppsf">$391</td></tr>
+            <tr><td><span class="td-addr">6536 Patrick Drive</span><span class="td-sub">Caruth Terrace 6</span></td><td>1,492</td><td>3/2</td><td>0.204</td><td>No</td><td class="td-price">$549,900</td><td class="td-ppsf">$369</td></tr>
+            <tr><td><span class="td-addr">6815 E Mockingbird Lane</span><span class="td-sub">Caruth Terrace</span></td><td>2,450</td><td>3/2</td><td>0.179</td><td>No</td><td class="td-price">$545,000</td><td class="td-ppsf">$222</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-footer">28 MLS closed sales · Pre-1965 homes · Hillside neighborhood · Source: NTREIS / MLS · List prices shown · Data through April 2026</div>
+    </div>
+  </div>
+
+  <!-- VALUE DRIVERS -->
+  <div class="section" id="data-reveals">
+    <div class="section-head">
+      <div class="section-label">What the Data Reveals</div>
+      <div class="section-title">What Drives Value in Pre-1965 Hillside Homes</div>
+      <div class="section-desc">The price-per-square-foot spread — from $222 to $543 — tells a clear story about what moves the needle in this specific market.</div>
+    </div>
+    <div class="driver-grid">
+      <div class="driver">
+        <div class="driver-num">$543</div>
+        <div class="driver-label">Highest $/sqft seen</div>
+        <div class="driver-desc">An updated interior on a modestly sized home. Condition is everything.</div>
+      </div>
+      <div class="driver">
+        <div class="driver-num">2.4×</div>
+        <div class="driver-label">Price spread by condition</div>
+        <div class="driver-desc">The gap between the lowest ($222/sqft) and highest ($543/sqft) is the difference between selling as-is and strategic preparation.</div>
+      </div>
+      <div class="driver">
+        <div class="driver-num">$1.04M</div>
+        <div class="driver-label">Top pre-1965 sale</div>
+        <div class="driver-desc">A larger lot with more square footage. Lot size is a significant value multiplier in Hillside.</div>
+      </div>
+
+    </div>
+    <div class="callout blue" style="margin-top:14px;">
+      <p><strong>Strategic upgrades have an outsized return here.</strong> In a neighborhood where buyers pay $600K–$1M+ for 1,400–2,500 sqft homes, a thoughtfully targeted kitchen or bath renovation can add $50,000–$150,000 in sale price. Knowing which improvements have the best ROI for your specific home — and which don't — is exactly what a consultation can clarify.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta" id="free-consultation">
+    <h2>Free Consultation — Know the Real Value Before You Decide Anything</h2>
+    <p class="cta-lead">Whether you've been contacted by a builder, you're curious what your home is worth, or you want to know which improvements would get you the best return — I'm here to help with no pressure and no obligation.</p>
+    <div class="cta-services">
+      <div class="cta-svc">
+        <div class="cta-svc-num">01</div>
+        <div class="cta-svc-title">Home Valuation (CMA)</div>
+        <div class="cta-svc-desc">A precise Comparative Market Analysis using actual MLS sales from your specific subdivision and street.</div>
+      </div>
+      <div class="cta-svc">
+        <div class="cta-svc-num">02</div>
+        <div class="cta-svc-title">ROI Consultation</div>
+        <div class="cta-svc-desc">Which improvements actually move the needle in Hillside's market — and which ones don't justify the cost.</div>
+      </div>
+      <div class="cta-svc">
+        <div class="cta-svc-num">03</div>
+        <div class="cta-svc-title">Seller Representation</div>
+        <div class="cta-svc-desc">Full MLS listing, pricing strategy, negotiation, and closing support if you decide the time is right to sell.</div>
+      </div>
+    </div>
+    <div class="cta-contact">
+      <div>
+        <div class="cta-contact-name">Matt Young</div>
+        <div class="cta-contact-detail">817-964-2672 &nbsp;·&nbsp; mattyoung@compass.com &nbsp;·&nbsp; The Smiley Sheehan Group</div>
+      </div>
+    </div>
+    <p class="cta-disclaimer">All data sourced from MLS closed sales (NTREIS). This page is for informational purposes only and does not constitute a formal appraisal. Market conditions change frequently. Contact me for a current analysis specific to your property.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  MLS closed sales data · NTREIS · Redfin · Zillow · HAR.com &nbsp;·&nbsp; Pre-1965 homes, Hillside neighborhood, Dallas TX 75214 &nbsp;·&nbsp; Updated April 2026
+</div>
+
+</body>
+</html>
